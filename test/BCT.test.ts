@@ -96,10 +96,11 @@ describe("BSG Token Contract", async () => {
       await expect(BCG.mint(cap.add(100), owner.address)).to.be.revertedWith("BCG: cap exceeded");
       await expect(BCG.mint(cap.add(100000000000), owner.address)).to.be.revertedWith("BCG: cap exceeded");
 
-      // mint less than total cap
-      await BCG.mint(1, owner.address);
-      await BCG.mint(100, owner.address);
-      await BCG.mint(100000000000, owner.address);
+      // mint equal to total cap
+      await BCG.mint(cap, owner.address);
+
+      // mint total cap + 1
+      await expect(BCG.mint(1, owner.address)).to.be.revertedWith("BCG: cap exceeded");
     });
   });
 });
