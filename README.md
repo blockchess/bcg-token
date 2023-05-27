@@ -1,10 +1,10 @@
-# $BCT BlockChess Token smart contract
+# $BCG BlockChess Game smart contract
 
 - Language: Solidity v0.8.19
 
 - Project framework: hardhat (ethers) + typechain
 
-- Nodejs: v14.17.0
+- Nodejs: v16.20.0
 
 ## Deployed
 
@@ -63,10 +63,16 @@ cp .env.example .env
 
 then edit EXPLORER_API_KEY and SIGNER_PRIVATE_KEY
 
-3. Run command:
+3. Deploy token smart contract:
 ```
-yarn hardhat run scripts/deploy-token.ts --network <network name>
+yarn hardhat run scripts/deploy-bcg-token.ts --network <network name>
 ```
+
+4. Verify in the explorer (optional)
+```
+yarn hardhat verify <token contract address> --network <network name>
+```
+
 
 ## License
 
